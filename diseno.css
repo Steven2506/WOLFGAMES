@@ -1,0 +1,215 @@
+/* ===== Reset básico ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #0a0a0a;
+    color: #fff;
+    line-height: 1.6;
+}
+
+/* ===== Contenedor principal ===== */
+main {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center; /* centra los textos dentro de main */
+}
+
+/* ===== Encabezados ===== */
+h1, h2, h3 {
+    color: #fff;
+    text-align: center;
+    margin-bottom: 15px;
+    text-shadow: 0 0 8px #a200ff, 0 0 16px #a200ff;
+}
+
+p {
+    margin-bottom: 15px;
+}
+
+/* ===== Navbar ===== */
+.navbar {
+    background: #111;
+    padding: 15px;
+    text-align: center;
+}
+
+.navbar .menu {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.navbar .menu li a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+    padding: 8px 16px;
+    border-radius: 8px;
+    transition: 0.3s;
+}
+
+.navbar .menu li a:hover {
+    background: #a200ff;
+    color: #fff;
+    box-shadow: 0 0 10px #a200ff, 0 0 20px #a200ff;
+}
+
+/* ===== Cajas generales (ej: Twitch y YouTube) ===== */
+.canal-box {
+    display: inline-block;
+    margin: 15px;
+    padding: 20px;
+    background: #111;
+    border: 2px solid #a200ff;
+    border-radius: 12px;
+    text-align: center;
+    color: #fff;
+    font-weight: bold;
+    transition: 0.3s;
+    box-shadow: 0 0 10px #a200ff, 0 0 20px #a200ff;
+}
+
+.canal-box:hover {
+    transform: scale(1.05);
+    background: #a200ff;
+    color: #fff;
+}
+
+/* Centrado de cajas y textos importantes */
+.canales {
+    display: flex;
+    justify-content: center; /* centra horizontalmente todas las cajas */
+    flex-wrap: wrap; /* permite que bajen a otra línea si no caben */
+    gap: 20px;
+}
+
+.tagline {
+    text-align: center;
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+}
+
+/* ===== Footer ===== */
+footer {
+    text-align: center;
+    padding: 20px;
+    margin-top: 40px;
+    background: #111;
+    border-top: 2px solid #a200ff;
+}
+
+/* ===== Indicador EN DIRECTO ===== */
+#live-indicator {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    font-weight: bold;
+    padding: 6px 12px;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    transition: 0.3s;
+    text-decoration: none;
+}
+
+#live-indicator .dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+}
+
+#live-indicator.offline {
+    color: #ccc;
+}
+
+#live-indicator.offline .dot {
+    background: #ccc;
+}
+
+#live-indicator.online {
+    color: #ff0000;
+}
+
+#live-indicator.online .dot {
+    background: #ff0000;
+}
+
+/* ===== Sección Deportes (galería de horarios) ===== */
+.horarios-img {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.horarios-img img {
+    width: 100%;
+    border-radius: 12px;
+    border: 2px solid #a200ff;
+    box-shadow: 0 0 10px #a200ff, 0 0 20px #a200ff;
+    transition: 0.3s;
+}
+
+.horarios-img img:hover {
+    transform: scale(1.05);
+}
+
+/* ===== Página Sobre mí ===== */
+.sobre-mi, .setup {
+    background: #111;
+    border: 2px solid #a200ff;
+    border-radius: 12px;
+    padding: 20px;
+    margin: 20px auto;
+    max-width: 800px;
+    box-shadow: 0 0 10px #a200ff, 0 0 20px #a200ff;
+    text-align: left;
+}
+
+.sobre-mi p, .setup p {
+    font-size: 1rem;
+}
+
+.setup ul {
+    list-style: none;
+    padding: 0;
+}
+
+.setup li {
+    background: #1a1a1a;
+    margin: 10px 0;
+    padding: 12px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 0 6px #a200ff;
+}
+
+/* Botones de enlaces en el setup */
+.btn-link {
+    text-decoration: none;
+    background: #a200ff;
+    color: #fff;
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    transition: 0.3s;
+    box-shadow: 0 0 8px #a200ff, 0 0 16px #a200ff;
+}
+
+.btn-link:hover {
+    background: #fff;
+    color: #a200ff;
+    box-shadow: 0 0 12px #fff, 0 0 24px #a200ff;
+    transform: scale(1.05);
+}
