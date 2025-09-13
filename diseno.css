@@ -68,47 +68,6 @@ h2 {
     color: #ff0000;
 }
 
-/* Sección Deportes */
-.deportes p {
-    margin-bottom: 20px;
-}
-
-.horarios-container {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    flex-wrap: wrap;
-}
-
-.horario {
-    background: #1f1f1f;
-    border: 2px solid #ff0000;
-    border-radius: 10px;
-    padding: 15px;
-    max-width: 300px;
-    transition: transform 0.3s ease;
-}
-
-.horario:hover {
-    transform: scale(1.05);
-}
-
-.horario p {
-    margin-bottom: 10px;
-    font-weight: bold;
-}
-
-.horario img {
-    width: 100%;
-    border-radius: 5px;
-    transition: opacity 0.3s ease;
-    cursor: pointer;
-}
-
-.horario img:hover {
-    opacity: 0.8;
-}
-
 /* Footer */
 footer {
     text-align: center;
@@ -117,4 +76,39 @@ footer {
     margin-top: 30px;
     border-top: 2px solid #ff0000;
     font-size: 0.9em;
+}
+
+/* Indicador flotante EN DIRECTO */
+#live-indicator {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background-color: #ff0000;
+    color: #fff;
+    padding: 10px 15px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: bold;
+    box-shadow: 0 0 10px #ff0000;
+    z-index: 1000;
+}
+
+#live-indicator .dot {
+    width: 12px;
+    height: 12px;
+    background-color: #fff;
+    border-radius: 50%;
+    animation: blink 1s infinite;
+}
+
+@keyframes blink {
+    0%, 50%, 100% { opacity: 1; }
+    25%, 75% { opacity: 0; }
+}
+
+#live-indicator.offline {
+    background-color: #555;
+    box-shadow: none;
 }
