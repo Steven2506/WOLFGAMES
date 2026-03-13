@@ -327,3 +327,72 @@ footer {
     margin-top:15px;
     text-shadow:0 0 10px #00ff88, 0 0 20px #00ff88;
 }
+/* ===== HERO SECTION ===== */
+
+.hero{
+    text-align:center;
+    padding:60px 20px;
+}
+
+.hero h2{
+    font-size:2.5rem;
+    margin-bottom:15px;
+}
+
+.hero p{
+    font-size:1.2rem;
+    margin-bottom:25px;
+}
+
+.btn-main{
+    background:#a200ff;
+    padding:12px 30px;
+    border-radius:30px;
+    text-decoration:none;
+    color:white;
+    font-weight:bold;
+    box-shadow:0 0 10px #a200ff,0 0 25px #a200ff;
+    transition:0.3s;
+}
+
+.btn-main:hover{
+    transform:scale(1.05);
+}
+
+
+/* ===== QUICK SECTIONS ===== */
+
+.quick-container{
+    display:flex;
+    justify-content:center;
+    gap:25px;
+    flex-wrap:wrap;
+    margin-top:25px;
+}
+
+.quick-card{
+    background:#111;
+    border:2px solid #a200ff;
+    padding:25px;
+    width:220px;
+    border-radius:12px;
+    text-decoration:none;
+    color:white;
+    box-shadow:0 0 10px #a200ff,0 0 20px #a200ff;
+    transition:0.3s;
+}
+
+.quick-card:hover{
+    transform:scale(1.05);
+    background:#a200ff;
+}
+
+#particles{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+pointer-events:none;
+z-index:-1;
+}
