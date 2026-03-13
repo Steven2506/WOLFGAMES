@@ -25,14 +25,45 @@
         </nav>
     </header>
 
-    <main>
-        <h2>Mis canales</h2>
-        <p>A continuación dejo los enlaces de mi canal de Twitch y de YouTube:</p>   
-        <div class="canales">
-            <a href="https://www.twitch.tv/wolfgames2506" target="_blank" class="canal-box">🎮 Canal de Twitch</a>
-            <a href="https://www.youtube.com/@WolfGames2506" target="_blank" class="canal-box">📺 Canal de YouTube</a>
-        </div>
-    </main>
+   <main>
+
+<section class="hero">
+
+<h2>Bienvenido a WOLFGAMES</h2>
+
+<p id="dynamic-text">Contenido gaming, deporte y directos.</p>
+
+<a href="directos.html" class="btn-main">Ver Directos</a>
+
+</section>
+
+
+<section class="quick-sections">
+
+<h2>Explora el contenido</h2>
+
+<div class="quick-container">
+
+<a href="F1.html" class="quick-card">
+<h3>🏎️ Fórmula 1</h3>
+<p>Horarios, countdown y GP actual</p>
+</a>
+
+<a href="MotoGP.html" class="quick-card">
+<h3>🏍️ MotoGP</h3>
+<p>Calendario y próximos GP</p>
+</a>
+
+<a href="deportes.html" class="quick-card">
+<h3>⚽ Fútbol</h3>
+<p>LaLiga y Champions League</p>
+</a>
+
+</div>
+
+</section>
+
+</main>
 
     <footer>
         <p>© 2025 WOLFGAMES - Todos los derechos reservados</p>
@@ -43,5 +74,54 @@
         <span class="dot"></span>
         <a href="https://www.twitch.tv/wolfgames2506" target="_blank">EN DIRECTO</a>
     </div>
+    
+    <canvas id="particles"></canvas>
+
+<script>
+
+const canvas = document.getElementById("particles");
+const ctx = canvas.getContext("2d");
+
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+
+let particles = [];
+
+for(let i=0;i<80;i++){
+    particles.push({
+        x:Math.random()*canvas.width,
+        y:Math.random()*canvas.height,
+        size:Math.random()*3+1,
+        speedY:Math.random()*1+0.3
+    });
+}
+
+function animate(){
+
+    ctx.clearRect(0,0,canvas.width,canvas.height);
+
+    ctx.fillStyle = "#a200ff";
+
+    particles.forEach(p => {
+
+        ctx.beginPath();
+        ctx.arc(p.x,p.y,p.size,0,Math.PI*2);
+        ctx.fill();
+
+        p.y += p.speedY;
+
+        if(p.y > canvas.height){
+            p.y = 0;
+            p.x = Math.random()*canvas.width;
+        }
+
+    });
+
+    requestAnimationFrame(animate);
+}
+
+animate();
+
+</script>
 </body>
 </html>
