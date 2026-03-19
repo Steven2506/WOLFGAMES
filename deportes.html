@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>WOLFGAMES - Deportes</title>
+<link rel="stylesheet" href="diseno.css">
+</head>
+
+<body>
+
+<header>
+
+<h1>Fútbol con <span class="neon">WOLFGAMES</span></h1>
+
+<nav class="navbar">
+<ul class="menu">
+<li><a href="index.html">INICIO</a></li>
+<li><a href="directos.html">DIRECTOS</a></li>
+<li><a href="F1.html">F1</a></li>
+<li><a href="MotoGP.html">MotoGP</a></li>
+<li><a href="videos.html">VIDEOS</a></li>
+<li><a href="deportes.html">FÚTBOL</a></li>
+<li><a href="sobremi.html">SOBRE MÍ</a></li>
+<li><a href="noticias.html">NOTICIAS</a></li>
+<li><a href="mas.html">MÁS</a></li>
+</ul>
+</nav>
+
+</header>
+
+
+<main>
+
+<section class="deportes">
+
+<h2>HORARIOS</h2>
+
+<p>
+Aquí podrás consultar los horarios de esta jornada de 
+<strong>LaLiga EA Sports</strong> y 
+<strong>UEFA Champions League</strong>.
+</p>
+<p><strong>JORNADA 28 - LALIGA</strong></p>
+
+<div class="horarios-container">
+
+<div class="horario">
+<p>Viernes</p>
+<p>⚽ Alavés vs Villarreal</p>
+<p>📍 Mendizorroza</p>
+<p>⏰ 21:00</p>
+</div>
+
+<div class="horario">
+<p>Sábado</p>
+<p>⚽ Girona vs Athletic Club</p>
+<p>📍 Montilivi</p>
+<p>⏰ 14:00</p>
+</div>
+
+<div class="horario">
+<p>⚽ Atlético Madrid vs Getafe</p>
+<p>📍 Metropolitano</p>
+<p>⏰ 16:15</p>
+</div>
+
+<div class="horario">
+<p>⚽ Oviedo vs Valencia</p>
+<p>📍 Carlos Tartiere</p>
+<p>⏰ 18:30</p>
+</div>
+
+<div class="horario">
+<p>⚽ Real Madrid vs Elche</p>
+<p>📍 Santiago Bernabéu</p>
+<p>⏰ 21:00</p>
+</div>
+
+<div class="horario">
+<p>Domingo</p>
+<p>⚽ Mallorca vs Espanyol</p>
+<p>📍 Son Moix</p>
+<p>⏰ 14:00</p>
+</div>
+
+<div class="horario">
+<p>⚽ Barcelona vs Sevilla</p>
+<p>📍 Estadi Olímpic Lluís Companys</p>
+<p>⏰ 16:15</p>
+</div>
+
+<div class="horario">
+<p>⚽ Betis vs Celta</p>
+<p>📍 Benito Villamarín</p>
+<p>⏰ 18:30</p>
+</div>
+
+<div class="horario">
+<p>⚽ Real Sociedad vs Osasuna</p>
+<p>📍 Reale Arena</p>
+<p>⏰ 21:00</p>
+</div>
+
+<div class="horario">
+<p>⚽ Rayo Vallecano vs Levante</p>
+<p>📍 Vallecas</p>
+<p>⏰ 21:00</p>
+</div>
+
+</div> <!-- CIERRA EL CONTENEDOR DE LALIGA -->
+<br>
+<p><strong>CHAMPIONS LEAGUE</strong></p>
+
+<div class="horarios-container">
+
+<div class="horario">
+<p>Martes</p>
+<p>⚽ Sporting CP vs Bodø/Glimt</p>
+<p>📍 José Alvalade</p>
+<p>⏰ 18:45</p>
+</div>
+
+<div class="horario">
+<p>⚽ Arsenal vs Leverkusen</p>
+<p>📍 Emirates Stadium</p>
+<p>⏰ 21:00</p>
+</div>
+
+<div class="horario">
+<p>⚽ Chelsea vs PSG</p>
+<p>📍 Stamford Bridge</p>
+<p>⏰ 21:00</p>
+</div>
+
+<div class="horario">
+<p>⚽ Manchester City vs Real Madrid</p>
+<p>📍 Etihad Stadium</p>
+<p>⏰ 21:00</p>
+</div>
+
+<div class="horario">
+<p>Miércoles</p>
+<p>⚽ Barcelona vs Newcastle</p>
+<p>📍 Estadi Olímpic Lluís Companys</p>
+<p>⏰ 18:45</p>
+</div>
+
+<div class="horario">
+<p>⚽ Bayern vs Atalanta</p>
+<p>📍 Allianz Arena</p>
+<p>⏰ 21:00</p>
+</div>
+
+<div class="horario">
+<p>⚽ Liverpool vs Galatasaray</p>
+<p>📍 Anfield</p>
+<p>⏰ 21:00</p>
+</div>
+
+<div class="horario">
+<p>⚽ Tottenham vs Atlético Madrid</p>
+<p>📍 Tottenham Hotspur Stadium</p>
+<p>⏰ 21:00</p>
+</div>
+
+</div>
+
+
+</section>
+
+</main>
+
+
+<footer>
+
+<p>© 2025 WOLFGAMES - Todos los derechos reservados</p>
+
+</footer>
+<canvas id="particles"></canvas>
+<script src="particles.js"></script>
+<!-- =========================
+     PARTICULAS
+========================= -->
+
+<script>
+
+const canvas = document.getElementById("particles");
+const ctx = canvas.getContext("2d");
+
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+
+let particles = [];
+
+for(let i=0;i<70;i++){
+particles.push({
+x:Math.random()*canvas.width,
+y:Math.random()*canvas.height,
+size:Math.random()*3+1,
+speedX:(Math.random()-0.5)*0.5,
+speedY:(Math.random()-0.5)*0.5
+});
+}
+
+function animate(){
+
+ctx.clearRect(0,0,canvas.width,canvas.height);
+
+ctx.fillStyle="#a200ff";
+
+particles.forEach(p=>{
+
+ctx.beginPath();
+ctx.arc(p.x,p.y,p.size,0,Math.PI*2);
+ctx.fill();
+
+p.x+=p.speedX;
+p.y+=p.speedY;
+
+if(p.x<0||p.x>canvas.width)p.speedX*=-1;
+if(p.y<0||p.y>canvas.height)p.speedY*=-1;
+
+});
+
+for(let a=0;a<particles.length;a++){
+for(let b=a;b<particles.length;b++){
+
+let dx=particles[a].x-particles[b].x;
+let dy=particles[a].y-particles[b].y;
+let dist=Math.sqrt(dx*dx+dy*dy);
+
+if(dist<120){
+ctx.strokeStyle="rgba(162,0,255,0.2)";
+ctx.lineWidth=1;
+ctx.beginPath();
+ctx.moveTo(particles[a].x,particles[a].y);
+ctx.lineTo(particles[b].x,particles[b].y);
+ctx.stroke();
+}
+
+}
+
+}
+
+requestAnimationFrame(animate);
+
+}
+
+animate();
+
+</script>
+</body>
+</html>

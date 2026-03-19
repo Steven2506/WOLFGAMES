@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>WOLFGAMES</title>
+<link rel="stylesheet" href="diseno.css">
+</head>
+
+<body>
+
+<header>
+
+<h1>Bienvenidos a <span class="neon">WOLFGAMES</span></h1>
+
+<p class="tagline">🔥 Streams, Motor, Fútbol y mucho mas.... 🔥</p>
+
+<nav class="navbar">
+<ul class="menu">
+<li><a href="index.html">INICIO</a></li>
+<li><a href="directos.html">DIRECTOS</a></li>
+<li><a href="F1.html">F1</a></li>
+<li><a href="MotoGP.html">MotoGP</a></li>
+<li><a href="videos.html">VIDEOS</a></li>
+<li><a href="deportes.html">FÚTBOL</a></li>
+<li><a href="sobremi.html">SOBRE MÍ</a></li>
+<li><a href="noticias.html">NOTICIAS</a></li>
+<li><a href="mas.html">MÁS</a></li>
+</ul>
+</nav>
+
+</header>
+
+
+<!-- =========================
+     WIDGET F1
+========================= -->
+
+<section class="next-gp-widget">
+
+<h2>🏎️ PRÓXIMO GRAN PREMIO</h2>
+
+<div class="gp-widget">
+
+<h3 id="widget-gp-name">Cargando...</h3>
+
+<p id="widget-circuit"></p>
+
+<h2 id="widget-countdown"></h2>
+
+<a href="F1.html" class="btn-link">Ver horarios completos →</a>
+
+</div>
+
+</section>
+
+
+<!-- =========================
+     WIDGET MOTOGP
+========================= -->
+
+<section class="next-motogp-widget">
+
+<h2>🏍️ PRÓXIMO GP MOTOGP</h2>
+
+<div class="gp-widget">
+
+<h3 id="motogp-name">Cargando...</h3>
+
+<p id="motogp-circuit"></p>
+
+<h2 id="motogp-countdown"></h2>
+
+<a href="MotoGP.html" class="btn-link">Ver calendario MotoGP →</a>
+
+</div>
+
+</section>
+
+
+<main>
+
+<section class="quick-sections">
+
+<h2>Explora el contenido</h2>
+
+<div class="quick-container">
+
+<a href="F1.html" class="quick-card">
+<h3>🏎️ Fórmula 1</h3>
+<p>Horarios, countdown y GP actual</p>
+</a>
+
+<a href="MotoGP.html" class="quick-card">
+<h3>🏍️ MotoGP</h3>
+<p>Calendario y próximos GP</p>
+</a>
+
+<a href="deportes.html" class="quick-card">
+<h3>⚽ Fútbol</h3>
+<p>LaLiga y Champions League</p>
+</a>
+
+</div>
+
+</section>
+
+</main>
+
+
+<footer>
+
+<p>© 2025 WOLFGAMES - Todos los derechos reservados</p>
+
+</footer>
+
+
+<!-- Indicador flotante EN DIRECTO -->
+
+<div id="live-indicator" class="offline">
+<span class="dot"></span>
+<a href="https://www.twitch.tv/wolfgames2506" target="_blank">EN DIRECTO</a>
+</div>
+
+
+<canvas id="particles"></canvas>
+
+
+<!-- =========================
+     PARTICULAS
+========================= -->
+
+<script>
+
+const canvas = document.getElementById("particles");
+const ctx = canvas.getContext("2d");
+
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+
+let particles = [];
+
+for(let i=0;i<70;i++){
+particles.push({
+x:Math.random()*canvas.width,
+y:Math.random()*canvas.height,
+size:Math.random()*3+1,
+speedX:(Math.random()-0.5)*0.5,
+speedY:(Math.random()-0.5)*0.5
+});
+}
+
+function animate(){
+
+ctx.clearRect(0,0,canvas.width,canvas.height);
+
+ctx.fillStyle="#a200ff";
+
+particles.forEach(p=>{
+
+ctx.beginPath();
+ctx.arc(p.x,p.y,p.size,0,Math.PI*2);
+ctx.fill();
+
+p.x+=p.speedX;
+p.y+=p.speedY;
+
+if(p.x<0||p.x>canvas.width)p.speedX*=-1;
+if(p.y<0||p.y>canvas.height)p.speedY*=-1;
+
+});
+
+for(let a=0;a<particles.length;a++){
+for(let b=a;b<particles.length;b++){
+
+let dx=particles[a].x-particles[b].x;
+let dy=particles[a].y-particles[b].y;
+let dist=Math.sqrt(dx*dx+dy*dy);
+
+if(dist<120){
+ctx.strokeStyle="rgba(162,0,255,0.2)";
+ctx.lineWidth=1;
+ctx.beginPath();
+ctx.moveTo(particles[a].x,particles[a].y);
+ctx.lineTo(particles[b].x,particles[b].y);
+ctx.stroke();
+}
+
+}
+
+}
+
+requestAnimationFrame(animate);
+
+}
+
+animate();
+
+</script>
+
+
+<!-- =========================
+     CALENDARIOS
+========================= -->
+
+<script src="F1calendar.js"></script>
+<script src="motogpcalendar.js"></script>
+
+
+<script>
+
+/* =========================
+   WIDGET F1
+========================= */
+
+const nextRace = getNextRace();
+
+if(nextRace){
+
+document.getElementById("widget-gp-name").innerHTML =
+nextRace.name;
+
+document.getElementById("widget-circuit").innerHTML =
+"📍 " + nextRace.circuit;
+
+startCountdown(
+new Date(nextRace.date).getTime(),
+"widget-countdown"
+);
+
+}
+
+
+/* =========================
+   WIDGET MOTOGP
+========================= */
+
+const nextMotoGP = getNextMotoGP();
+
+if(nextMotoGP){
+
+document.getElementById("motogp-name").innerHTML =
+nextMotoGP.name;
+
+document.getElementById("motogp-circuit").innerHTML =
+"📍 " + nextMotoGP.circuit;
+
+startMotoCountdown(
+new Date(nextMotoGP.date).getTime(),
+"motogp-countdown"
+);
+
+}
+
+</script>
+
+</body>
+</html>
