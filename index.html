@@ -31,7 +31,6 @@
 
 </header>
 
-
 <!-- =========================
      WIDGET F1
 ========================= -->
@@ -54,7 +53,6 @@
 
 </section>
 
-
 <!-- =========================
      WIDGET MOTOGP
 ========================= -->
@@ -76,7 +74,6 @@
 </div>
 
 </section>
-
 
 <main>
 
@@ -107,31 +104,27 @@
 
 </main>
 
-
 <footer>
 
 <p>© 2025 WOLFGAMES - Todos los derechos reservados</p>
 
 </footer>
 
-
-<!-- Indicador flotante EN DIRECTO -->
+<!-- Indicador flotante -->
 
 <div id="live-indicator" class="offline">
 <span class="dot"></span>
 <a href="https://www.twitch.tv/wolfgames2506" target="_blank">EN DIRECTO</a>
 </div>
 
-
 <canvas id="particles"></canvas>
-
 
 <!-- =========================
      PARTICULAS
 ========================= -->
 
 <script>
-
+// (tu código de partículas intacto)
 const canvas = document.getElementById("particles");
 const ctx = canvas.getContext("2d");
 
@@ -195,9 +188,7 @@ requestAnimationFrame(animate);
 }
 
 animate();
-
 </script>
-
 
 <!-- =========================
      CALENDARIOS
@@ -206,14 +197,24 @@ animate();
 <script src="F1calendar.js"></script>
 <script src="motogpcalendar.js"></script>
 
-
 <script>
 
 /* =========================
-   WIDGET F1
+   WIDGETS (VERSIÓN SEGURA)
 ========================= */
 
-const nextRace = getNextRace();
+window.onload = function(){
+
+/* ===== F1 ===== */
+
+// fallback inteligente
+let nextRace = null;
+
+if(typeof getNextRace === "function"){
+nextRace = getNextRace();
+}else if(typeof getNextGP === "function"){
+nextRace = getNextGP();
+}
 
 if(nextRace){
 
@@ -231,9 +232,9 @@ new Date(nextRace.date).getTime(),
 }
 
 
-/* =========================
-   WIDGET MOTOGP
-========================= */
+/* ===== MOTOGP ===== */
+
+if(typeof getNextMotoGP === "function"){
 
 const nextMotoGP = getNextMotoGP();
 
@@ -251,6 +252,10 @@ new Date(nextMotoGP.date).getTime(),
 );
 
 }
+
+}
+
+};
 
 </script>
 
